@@ -1,0 +1,7 @@
+# 获取下课聊动态
+-getListByType:
+ url: http://192.168.0.8:80/Treehole/V4/Message/getListByType.action
+ method: POST
+ data: {
+
+ }

@@ -1,0 +1,36 @@
+2019-06-25 18:45:50 - root - INFO: - 成功访问
+2019-06-25 18:45:51 - root - INFO: - 成功访问
+2019-06-25 18:45:51 - root - INFO: - 成功访问
+2019-06-25 18:45:52 - root - INFO: - 成功访问
+2019-06-25 18:45:52 - root - INFO: - 成功访问
+2019-06-25 18:55:16 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:16 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "POST http://club.super.cn/Other/login.action HTTP/1.1" 200 310
+2019-06-25 18:55:16 - root - INFO: - 成功访问
+2019-06-25 18:55:16 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:16 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "GET http://club.super.cn/ HTTP/1.1" 200 None
+2019-06-25 18:55:16 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:16 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "GET http://crm.super.cn/home/user/login.html HTTP/1.1" 200 None
+2019-06-25 18:55:16 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "GET http://help.super.cn/ HTTP/1.1" 200 None
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "GET http://star.super.cn/ HTTP/1.1" 302 0
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "GET http://star.super.cn/CampusV2/login.jsp HTTP/1.1" 200 None
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "GET http://caochang.super.cn/ HTTP/1.1" 302 0
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "GET http://caochang.super.cn/playground/pc/index.jsp HTTP/1.1" 200 None
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "POST http://ke.super.cn/Course/getAllCourse.action HTTP/1.1" 200 22471
+2019-06-25 18:55:17 - root - INFO: - 成功访问
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "POST http://club.super.cn/User/login.action HTTP/1.1" 200 721
+2019-06-25 18:55:17 - root - INFO: - 成功访问
+2019-06-25 18:55:17 - urllib3.connectionpool - DEBUG: - Starting new HTTPS connection (1): score.super.cn:443
+2019-06-25 18:55:18 - urllib3.connectionpool - DEBUG: - https://score.super.cn:443 "GET /Score/index.html HTTP/1.1" 200 None
+2019-06-25 18:55:18 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:18 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "GET http://emptyclssroom.super.cn/emptyClass/index.html HTTP/1.1" 200 None
+2019-06-25 18:55:18 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:18 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "POST http://caochang.super.cn/V2/Treehole/Topic/touristGetTopics.action HTTP/1.1" 200 6342
+2019-06-25 18:55:18 - root - INFO: - 成功访问
+2019-06-25 18:55:18 - urllib3.connectionpool - DEBUG: - Starting new HTTP connection (1): 127.0.0.1:8888
+2019-06-25 18:55:18 - urllib3.connectionpool - DEBUG: - http://127.0.0.1:8888 "POST http://star.super.cn/CampusV2/trainee/traineelogin.action HTTP/1.1" 200 117
+2019-06-25 18:55:18 - root - INFO: - 成功访问
