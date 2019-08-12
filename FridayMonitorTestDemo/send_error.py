@@ -17,7 +17,7 @@ def sendErrorMsg(msg):
         'pszSubPort': '1'
     }
     res = requests.post(url=msgUrl, data=msgData)
-    print res.content
+    print(res.content)
 
 def sendEmail(message):
 
@@ -48,10 +48,10 @@ def sendEmail(message):
 
     try:
         smtp.sendmail(mail_info["from"], mail_info["to"], msg.as_string())
-        print "邮件发送成功"
+        print("邮件发送成功")
 
     except smtplib.SMTPException:
-        print "Error: 无法发送邮件"
+        print("Error: 无法发送邮件")
 
 
     smtp.quit()

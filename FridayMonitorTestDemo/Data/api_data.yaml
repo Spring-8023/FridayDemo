@@ -1,7 +1,50 @@
 # 获取下课聊动态
 -getListByType:
- url: http://192.168.0.8:80/Treehole/V4/Message/getListByType.action
+ url: /Treehole/V4/Message/getListByType.action
  method: POST
  data: {
+  type: 1,
+  timestamp: 0
+ }
+# 获取下课聊发现页面话题跟板块
+-getDiscoveryIndex:
+ url: /Treehole/V4/Topic/getDiscoveryIndex.action
+ method: POST
+ data: {}
 
+# 获取下课聊发现页面热门列表
+-findMessage:
+ url: /Treehole/V4/Topic/findMessage.action
+ method: POST
+ data: {
+  type: 1,
+  timestamp: 0
+ }
+
+# 获取下课聊话题列表topicId：51 板块名：读书使我快乐
+-getMessageByTopicIdV5:
+ url: /V2/Treehole/Message/getMessageByTopicIdV5.action
+ method: POST
+ data: {
+  selectType: 0,
+  timestamp: 0,
+  topicId: 51,
+  type: 1,
+  genderType: -1
+ }
+
+# 获取校园头条列表
+-getListV2:
+ url: /Treehole/V4/News/getListV2.action
+ method: POST
+ data: {
+  timestamp: 0,
+ }
+
+# 根据studentID获取用户信息
+-getTopInfoById:
+ url: /V2/Student/getTopInfoById.action
+ method: POST
+ data: {
+  studentId: studentID
  }

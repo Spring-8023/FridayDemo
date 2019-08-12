@@ -11,7 +11,7 @@ Config:
     phoneBrand: Apple
   }
   Intranet_host: http://192.168.0.8:80
-  Outside_host:
+  Outside_host: http://120.55.151.61:80
 
 LoginInfo:
   url: /V2/StudentSkip/loginCheckV4.action
