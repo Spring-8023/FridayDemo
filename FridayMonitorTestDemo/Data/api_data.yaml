@@ -48,3 +48,130 @@
  data: {
   studentId: studentID
  }
+
+# 获取个人主页的下课聊动态帖子
+-showMovement:
+ url: /Treehole/V4/Message/showMovement.action
+ method: POST
+ data: {
+  studentId: studentID,  # 查看自己的
+#  studentId: 26905294， # 查看别人的
+  timestamp: 0
+ }
+
+ # 获取用户学校学院信息
+-getIndexInfoById:
+ url: /V2/Student/getIndexInfoById.action
+ method: POST
+ data: {
+  studentId: 26905294
+ }
+
+# 根据studentID查看个人资料
+-getInfoByIdV4:
+ url: /Student/getInfoByIdV4.action
+ method: POST
+ data: {
+  studentId: 26905294
+ }
+
+# 获取红人人气榜
+-CelebrityList:
+ url: /Base/V1/Celebrity/list.action
+ method: POST
+ data: {
+  inScore: 0
+ }
+
+# 获取我的粉丝列表
+-getFansList:
+ url: /Sociality/Contacts/V4/getFansList.action
+ method: POST
+ data: {
+  page: 1
+ }
+
+# 我的关注列表
+-findAssociatedUsersV2:
+ url: /Sociality/Contacts/V4/findAssociatedUsersV2.action
+ method: POST
+ data: {
+  timestamp: 0
+ }
+
+# 获取推荐列表
+-guessYouLikeUser:
+ url: /Sociality/Contacts/V4/guessYouLikeUser.action
+ method: POST
+ data: {
+  timestamp: 0,
+  schoolId: 120052
+ }
+
+# 获取消息中心评论列表
+-getMyInfoV4_message:
+ url: /Treehole/V4/Comment/getMyInfoV4.action
+ method: POST
+ data: {
+  timestamp: 0,
+  infoType: 0
+ }
+
+# 获取消息中心点赞打分列表
+-getMyInfoV4_like:
+ url: /Treehole/V4/Comment/getMyInfoV4.action
+ method: POST
+ data: {
+  timestamp: 0,
+  infoType: 12
+ }
+
+# 获取消息中心转发列表
+-getMyInfoV4_forward:
+ url: /Treehole/V4/Comment/getMyInfoV4.action
+ method: POST
+ data: {
+  timestamp: 0,
+  infoType: 5
+ }
+
+# 获取消息中心我的回复列表
+-getMyCommentV4:
+ url: /Treehole/V4/Comment/getMyCommentV4.action
+ method: POST
+ data: {
+  timestamp: 0
+ }
+
+# 搜索页面数据
+-byType:
+ url: /Treehole/V4/Search/byType.action
+ method: POST
+ data: {
+  searchType: 1,
+  timestamp: 0,
+  content: "",
+  page: 0
+ }
+
+# 搜索页面：输入框搜索数据，searchType=2
+-byType_message:
+ url: /Treehole/V4/Search/byType.action
+ method: POST
+ data: {
+  searchType: 2,
+  timestamp: 0,
+  content: "哈哈",
+  page: 1
+ }
+
+# 搜索页面：搜索学校列表数据，searchType=5，content参数传学校id
+-byType_message:
+ url: /Treehole/V4/Search/byType.action
+ method: POST
+ data: {
+  searchType: 5,
+  timestamp: 0,
+  content: 120082,
+  page: 1
+ }
