@@ -1,13 +1,16 @@
 # -*- coding:utf-8 -*-
 import requests
-from ddt import ddt, file_data, unpack
+from ddt import ddt, file_data
 from FridayMonitorTestDemo import test_read_data, send_error, login
-# import test_read_data
-import os
 import unittest
-# import send_error
 import json
 import logging
+import HTMLTestRunner
+import time
+import sys
+from imp import reload
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 monitor_path, d = test_read_data.file_name2('api_data')
 
@@ -51,6 +54,7 @@ class MonitortDemo(unittest.TestCase):
 
     @file_data(monitor_path)
     def test_monitor(self, **data):
+        print("----------执行测试-----------")
         # 获取登录的学生id
         studentID = login.get_studentinfo(MonitortDemo.result).get('studentId')
         # print(studentID)
@@ -61,7 +65,8 @@ class MonitortDemo(unittest.TestCase):
         params.update(MonitortDemo.BasicInfo)
         # 判断参数中是否存在学生id，如果存在把key值改为获取到的学生id
         if ('studentId' in params.keys()):
-            params['studentId'] = studentID
+            if params['studentId'] == 'studentID':
+                params['studentId'] = studentID
         # print(params)
         print(url)
         if method == 'POST':
@@ -70,17 +75,32 @@ class MonitortDemo(unittest.TestCase):
                 httpCode = res.status_code
                 httpResult = res.text
                 # print(type(httpCode), type(httpResult))
-                print(res.json())
+                print(httpResult)
+                temp = True
+                try:
+                    json_object = json.loads(httpResult)
+                except ValueError as e:
+                    temp = False
+                    # print(e)
+                self.assertEqual(200, httpCode, msg='状态码为200，表示通过')
                 if httpCode != 200:
-                    send_error.sendEmail("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
+                    print("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
+                    # send_error.sendEmail("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
+                    # MonitortDemo.logger.info('')
+                elif temp == False:
+                    print("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
+                    # send_error.sendEmail("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
+
                 elif json.loads(httpResult).get('status') == -1:
-                    send_error.sendEmail("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
+                    print("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
+                    # send_error.sendEmail("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
                 else:
-                    # print("成功访问")
-                    MonitortDemo.logger.info('成功访问')
+                    print("成功访问")
+                    # MonitortDemo.logger.info('成功访问')
+
 
             except requests.exceptions.Timeout as e:
-                print(type(e))
+                # print(type(e))
                 httpResult = str(e)
                 send_error.sendEmail("监控报警:" + url + "\n访问超时：" + httpResult)
 
@@ -105,5 +125,12 @@ class MonitortDemo(unittest.TestCase):
 
 if __name__ == '__main__':
 
-    unittest.main()
+    # unittest.main()
     # m.read_yaml()
+    suite = unittest.TestSuite()
+    suite.addTest(unittest.makeSuite(MonitortDemo))
+    t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    with open('TestResult_' + t + '.html', 'w', encoding='utf-8') as f:
+        runner = HTMLTestRunner.HTMLTestRunner(stream=f, title='接口测试报告', description='接口测试报告结果')
+        runner.run(suite)
+    f.close

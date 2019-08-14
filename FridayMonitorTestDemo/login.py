@@ -2,6 +2,7 @@
 import requests
 from FridayMonitorTestDemo import test_read_data
 
+# 从config.yaml文件获取内外网host以及登录信息传参
 def login(host,logininfo):
 
     # (config, logininfo) = test_read_data.get_Info()
@@ -36,7 +37,8 @@ def get_studentinfo(r):
     res = r.json()
     studentInfo = res['data']['student']
     studentId = studentInfo.get('studentId')
-    print(studentInfo)
+    # print(studentInfo)
+    # 返回学生信息
     return studentInfo
 
 if __name__ == '__main__':

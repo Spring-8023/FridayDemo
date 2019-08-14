@@ -1,11 +1,10 @@
 # -*- coding:utf-8 -*-
-
 import os
 import yaml
 
 cur_path = os.path.dirname(__file__)
-
-# print cur_path
+# print
+# 遍历当前文件路径下的所有yaml文件
 def file_name():
     L = []
     k = {}
@@ -30,6 +29,7 @@ def file_name():
     # print k
     return k  # 返回一个路径键值对
 
+# 遍历当前文件路径下的所有yaml文件，并对读取yaml文件，return结果
 def file_name2(param):
     L = []
     k = {}

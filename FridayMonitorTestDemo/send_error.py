@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 import requests
+import smtplib  # python3 直接导入smtplib模块
 from smtplib import SMTP_SSL
 from email.header import Header
 from email.mime.text import MIMEText
@@ -58,5 +59,5 @@ def sendEmail(message):
 
 if __name__ == '__main__':
     # sendErrorMsg("测试")
-    # sendEmail("测试")
-    pass
+    sendEmail("测试")
+    # pass
