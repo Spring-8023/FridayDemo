@@ -132,8 +132,8 @@ if __name__ == '__main__':
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(MonitortDemo))
     t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    with open('TestResult.html', 'w') as f:
-    # with open('TestResult_' + t + '.html', 'w') as f:
+    # with open('TestResult.html', 'wb') as f:
+    with open('TestResult_' + t + '.html', 'wb') as f:
         runner = HTMLTestRunner.HTMLTestRunner(stream=f, title='接口测试报告', description='接口测试报告结果')
         runner.run(suite)
     f.close
