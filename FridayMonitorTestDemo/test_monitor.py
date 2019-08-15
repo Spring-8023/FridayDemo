@@ -7,10 +7,10 @@ import json
 import logging
 import HTMLTestRunner
 import time
-import sys
-from imp import reload
-reload(sys)
-sys.setdefaultencoding('utf-8')
+# import sys
+# from imp import reload
+# reload(sys)
+# sys.setdefaultencoding('utf-8')
 
 monitor_path, d = test_read_data.file_name2('api_data')
 
@@ -74,15 +74,17 @@ class MonitortDemo(unittest.TestCase):
                 res = MonitortDemo.res.post(url=url, data=params, timeout=60)
                 httpCode = res.status_code
                 httpResult = res.text
-                # print(type(httpCode), type(httpResult))
-                print(httpResult)
+                print(type(httpCode), type(httpResult))
+                # print(httpResult)
                 temp = True
                 try:
                     json_object = json.loads(httpResult)
                 except ValueError as e:
                     temp = False
                     # print(e)
-                self.assertEqual(200, httpCode, msg='状态码为200，表示通过')
+
+                self.assertEqual(200, httpCode, msg='状态码为非200，表示不通过')
+                # self.assertEqual(200, httpCode, msg='fail')
                 if httpCode != 200:
                     print("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
                     # send_error.sendEmail("监控报警: \n报警接口: " + url + " \n接口返回状态码：%s " % str(httpCode) + "\n接口返回结果：" + httpResult)
@@ -130,7 +132,8 @@ if __name__ == '__main__':
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(MonitortDemo))
     t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    with open('TestResult_' + t + '.html', 'w', encoding='utf-8') as f:
+    with open('TestResult.html', 'w') as f:
+    # with open('TestResult_' + t + '.html', 'w') as f:
         runner = HTMLTestRunner.HTMLTestRunner(stream=f, title='接口测试报告', description='接口测试报告结果')
         runner.run(suite)
     f.close
