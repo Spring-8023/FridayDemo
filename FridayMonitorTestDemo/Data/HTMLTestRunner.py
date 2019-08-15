@@ -796,15 +796,17 @@ class HTMLTestRunner(Template_mixin):
             # TODO: some problem with 'string_escape': it escape \n and mess up formating
             # uo = unicode(o.encode('string_escape'))
             # uo = o
-            uo = o.decode('utf-8')
+            uo = o.decode('utf-8', 'ignore')
 
         else:
             uo = o
+
         if isinstance(e, str):
             # TODO: some problem with 'string_escape': it escape \n and mess up formating
             # ue = unicode(e.encode('string_escape'))
             # ue = e
-            ue = e.decode('utf-8')
+
+            ue = e.decode('utf-8', 'ignore')
         else:
             ue = e
 
