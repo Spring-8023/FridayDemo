@@ -100,8 +100,8 @@ class MonitortDemo(unittest.TestCase):
                     print("成功访问")
                     # MonitortDemo.logger.info('成功访问')
 
-
-            except requests.exceptions.Timeout as e:
+            # 捕获异常并输出
+            except Exception as e:
                 # print(type(e))
                 httpResult = str(e)
                 send_error.sendEmail("监控报警:" + url + "\n访问超时：" + httpResult)
@@ -119,7 +119,8 @@ class MonitortDemo(unittest.TestCase):
                     print("成功访问")
                     # MonitortDemo.logger.info('get成功访问')
 
-            except requests.exceptions.Timeout as e:
+            # 捕获异常并输出
+            except Exception as e:
                 httpResult = str(e)
                 send_error.sendEmail("监控报警:" + url + "\n访问超时：" + httpResult)
 
@@ -129,6 +130,7 @@ if __name__ == '__main__':
 
     # unittest.main()
     # m.read_yaml()
+
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(MonitortDemo))
     t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
