@@ -125,7 +125,6 @@ class MonitortDemo(unittest.TestCase):
                 send_error.sendEmail("监控报警:" + url + "\n访问超时：" + httpResult)
 
 
-
 if __name__ == '__main__':
 
     # unittest.main()

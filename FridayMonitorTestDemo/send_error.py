@@ -28,7 +28,7 @@ def sendEmail(message):
         "to": "fiona@myfriday.cn",
         "hostname": "smtp.exmail.qq.com",
         "username": "fiona@myfriday.cn",
-        "password": "aXAA0dcAbl5gvaB0",
+        "password": "2aijFtBwvC3UTvAQ",
         "mail_subject": "超级课程表监控系统",
         "mail_text": message,
         "mail_encoding": "utf-8"
