@@ -4,11 +4,14 @@ class People:
     self.name=name
   def people_info(self):
     print('%s is xxx' %(self.name))
+
 obj=People('aaa')
 print(hasattr(People,'country'))
 #返回值：True
+print(hasattr(People,'China'))
 print('country' in People.__dict__)
 #返回值：True
+print('China' in People.__dict__)
 print(hasattr(obj,'people_info'))
 #返回值：True
 print(People.__dict__)

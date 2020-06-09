@@ -2,8 +2,6 @@ from SpringDemo.xueqiuDemo.page.base_page import BasePage
 
 
 class SearchPage(BasePage):
-    def __init__(self, driver):
-        self.driver = driver
 
     def search(self, keyword):
         self.find_by_id("search_input_text").send_keys(keyword)

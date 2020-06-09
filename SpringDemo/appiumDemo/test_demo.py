@@ -44,4 +44,5 @@ el2.click()
 el3 = driver.find_element_by_xpath('//android.widget.TextView[contains(@text,"本机号码一键登录")]')
 el3.click()
 '''
+
 driver.quit()
