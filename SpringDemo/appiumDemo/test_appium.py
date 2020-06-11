@@ -25,6 +25,7 @@ class TestAppium:
 
 
 
+
     def login(self):
 
 
@@ -50,13 +51,19 @@ class TestAppium:
             # self.driver.swipe(23, 912, 87, 888, 5)
             # sleep(5)
 
-    def test_treehold(self):
+    def treehold(self):
 
 
     # 首页tab/rbtn_tab_social  下课聊/rbtn_tab_playground   课程表/rbtn_tab_course  小纸条/rbtn_tab_papers  我/rbtn_tab_settings
         self.driver.find_element_by_id("rbtn_tab_playground").click()
         # self.driver.find_element_by_xpath("//@resource-id='com.xtuone.android.syllabus:id/rbtn_tab_playground'").click()
         assert self.driver.find_element_by_id("tv_hot_title").text == "今日热议"
+
+    def test_course1(self):
+        # sleep(10)
+        self.driver.find_element_by_id("campus_news_item_head_tip").click()
+        print(self.driver.find_element_by_id("rbtn_tab_course").is_selected())
+        assert self.driver.find_element_by_id("rbtn_tab_course").is_selected() == True
 
 
     def teardown(self):
