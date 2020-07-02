@@ -13,30 +13,26 @@ class BasePage:
     def find_by_xpath(self, xpath):
         return self.driver.find_element_by_xpath(xpath)
 
-    def is_element_exist(self):
+    def is_element_exist(self, element):
+        sleep(3)
         # source = self.driver.page_source
         # print(source)
+        #
         # if element in source:
+        #     print('存在')
         #     return True
+        #
         # else:
+        #     print('不存在')
         #     return False
 
-        sleep(3)
-        source = self.driver.page_source
-        print(source)
         #
-        if 'ignore_top' in source:
-
-             print('存在')
+        #
+        if self.driver.find_element_by_id(element) != []:
+            print(self.driver.find_element_by_id(element))
+            print('存在')
+            return True
         else:
             print('不存在')
-        # # 闪屏跳过按钮  ignore_top
-        #
-        #
-        # if self.driver.find_element_by_id('ignore_top') != []:
-        #     print(self.driver.find_element_by_id('ignore_top'))
-        #     print(True)
-        # else:
-        #
-        #     print(False)
+            return False
 
