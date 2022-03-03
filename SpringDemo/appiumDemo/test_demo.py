@@ -1,7 +1,7 @@
 # This sample code uses the Appium python client
 # pip install Appium-Python-Client
 # Then you can paste this into a file and simply run with Python
-
+'''
 from appium import webdriver
 
 caps = {}
@@ -35,7 +35,7 @@ el4.click()
 
 
 
-'''
+
 # el2 = driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.CheckBox")
 el2 = driver.find_element_by_class_name('android.widget.CheckBox')
 el2.click()
@@ -43,6 +43,21 @@ el2.click()
 # el3 = driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[1]/android.widget.RelativeLayout/android.widget.TextView")
 el3 = driver.find_element_by_xpath('//android.widget.TextView[contains(@text,"本机号码一键登录")]')
 el3.click()
-'''
+
 
 driver.quit()
+'''
+import requests
+
+
+def test_login():
+    data = {
+        "username": "lcj2@xt.com",
+        "password": "134679"
+    }
+    host = "http://192.168.0.36:8086"
+    url = "/login"
+    login_url = host + url
+    result = requests.post(url=login_url, data=data)
+    print(111)
+    print(result.content)
