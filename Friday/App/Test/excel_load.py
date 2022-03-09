@@ -6,6 +6,7 @@ Time：  2022/3/2 4:24 PM
 
 """
 import openpyxl
+import datetime
 
 from Friday.App.Test.request_client import send
 
@@ -29,7 +30,7 @@ def read_excel(file_path,sheet_name):
             # print(cell_value)
         cell_data.append(lines)
 
-    print(cell_data)
+    # print(cell_data)
     return cell_data
 
 if __name__ == "__main__":
@@ -40,12 +41,14 @@ if __name__ == "__main__":
         url = resp[1]
         method = resp[2]
         headers = resp[3]
-        params = eval(resp[4])
+        params = resp[4]
 
         print(casename)
         print(url)
         print(method)
         print(headers)
+        print(params)
         print(type(params))
-        # send(url=host+url, method=method, headers=headers, **params)
+        # res = send(url=host+url, method=method, headers=headers, **params)
+        # print(res.text)
 
