@@ -5,10 +5,10 @@ Author：Spring
 Time：  2022/3/21 6:31 PM
 
 """
-from common.RequestHandle import RequestHandle
+from common.RequestHandler import RequestHandle
 from config import settings
 
-from common.ExcelHandle import ExcelHandle
+from common.ExcelHandler import ExcelHandle
 
 
 def send_debug():

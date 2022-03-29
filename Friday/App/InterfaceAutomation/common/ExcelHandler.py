@@ -10,7 +10,7 @@ import openpyxl
 import xlrd
 from config import settings
 
-class ExcelHandle():
+class ExcelHandler():
 
     def __init__(self, excel_file_path=None):
         self.excel_file_path = excel_file_path
@@ -46,5 +46,5 @@ class ExcelHandle():
 
 
 if __name__ == "__main__":
-    result = ExcelHandle().read_excel((settings.EXCEL_FILE_PATH), "Sheet1")
+    result = ExcelHandler().read_excel((settings.EXCEL_FILE_PATH), "Sheet1")
     print(result)

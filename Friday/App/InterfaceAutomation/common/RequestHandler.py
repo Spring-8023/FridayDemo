@@ -5,13 +5,13 @@ Author：Spring
 Time：  2022/3/17 6:13 PM
 
 """
-import pytest
+# import pytest
 import requests
-from common.ExcelHandle import ExcelHandle
-from config import settings
+# from common.ExcelHandler import ExcelHandler
+# from config import settings
 session = requests.session()
 
-class RequestHandle():
+class RequestHandler():
     def __init__(self):
         self.session = session
         self.host = 'http://192.168.0.8'

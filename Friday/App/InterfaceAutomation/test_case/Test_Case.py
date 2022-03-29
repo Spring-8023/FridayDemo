@@ -5,21 +5,23 @@ Author：Spring
 Time：  2022/3/22 9:52 AM
 
 """
-import config
 import pytest
 import allure
-from common.ExcelHandle import ExcelHandle
-from common.RequestHandle import RequestHandle
+from common.ExcelHandler import ExcelHandler
+from common.RequestHandler import RequestHandler
+from common.AllureHandler import AllureHandler
+from common.LoggerHandler import logger
 from config import settings
-from common.AllureHandle import AllureHandle
+
 
 
 class TestCase(object):
 
-    @pytest.mark.parametrize('item', ExcelHandle().get_excel_data(settings.EXCEL_FILE_PATH, 'Sheet2'))
+    @pytest.mark.parametrize('item', ExcelHandler().get_excel_data(settings.EXCEL_FILE_PATH, 'Sheet2'))
     def test_case(self, item):
-        resp = RequestHandle().send_msg(item)
+        resp = RequestHandler().send_msg(item)
         # print(resp.text)
+        # logger().info(item)
         allure.dynamic.feature(item['用例名称'])
         allure.dynamic.title(item['用例名称'])
         # print(resp.json()['status'])
@@ -32,19 +34,20 @@ class TestCase(object):
                 resp.status_code
             )
         )
-        RequestHandle().check_response(resp, item)
+        RequestHandler().check_response(resp, item)
 
 
 
-    test_data = ExcelHandle().read_excel(settings.EXCEL_FILE_PATH, 'Sheet1')
+    test_data = ExcelHandler().read_excel(settings.EXCEL_FILE_PATH, 'Sheet1')
     @pytest.mark.parametrize('casename,url,method,headers,params,code,business_code,msg', test_data )
     def est_case1(self, casename, url, method, headers, params, code, business_code, msg):
         params = eval(params)
         print(params)
-        resp = RequestHandle().send(url=url, method=method, **params)
+        resp = RequestHandler().send(url=url, method=method, **params)
         print(resp.content)
 
     def teardown_class(self):
+        logger().info('teardown_class')
         # 执行allure命令，生成allure报告
         print("执行allure命令,并启动服务")
-        AllureHandle().execute_command()
+        AllureHandler().execute_command()
