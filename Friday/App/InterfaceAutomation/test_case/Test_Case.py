@@ -7,15 +7,22 @@ Time：  2022/3/22 9:52 AM
 """
 import pytest
 import allure
+import shutil
 from common.ExcelHandler import ExcelHandler
 from common.RequestHandler import RequestHandler
 from common.AllureHandler import AllureHandler
 from common.LoggerHandler import logger
+from common.SendEmailHandler import SendEmailHandler
 from config import settings
 
 
-
 class TestCase(object):
+
+    # @classmethod
+    # def setup_class(self):
+    #     print("删除json文件")
+    #     shutil.rmtree(settings.ALLURE_JSON_DIR_PATH)  # 报告生成后删除不需要的json文件,防止多次执行后产生越来越多的json文件
+
 
     @pytest.mark.parametrize('item', ExcelHandler().get_excel_data(settings.EXCEL_FILE_PATH, 'Sheet2'))
     def test_case(self, item):
@@ -51,3 +58,6 @@ class TestCase(object):
         # 执行allure命令，生成allure报告
         print("执行allure命令,并启动服务")
         AllureHandler().execute_command()
+        # 将测试报告打包并发送邮件
+        SendEmailHandler().send_mail_msg()
+
