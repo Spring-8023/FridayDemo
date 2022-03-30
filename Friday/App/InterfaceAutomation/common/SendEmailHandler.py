@@ -87,7 +87,7 @@ class SendEmailHandler(object):
 
     # 清空report目录功能
     def _del_temp_file(self):
-        # 清空report目录，不然文件会堆积很多
+        # 清空report目录，报告生成后删除不需要的json文件,防止多次执行后产生越来越多的json文件
         logger().info('删除临时目录')
         shutil.rmtree(settings.REPORT_PATH)
         logger().info("成功删除临时目录")
@@ -99,7 +99,7 @@ class SendEmailHandler(object):
         # 调用发邮件操作
         self._send_mail()
         # 调用删除临时文件
-        # self._del_temp_file()
+        self._del_temp_file()
 
 
 if __name__ == "__main__":
