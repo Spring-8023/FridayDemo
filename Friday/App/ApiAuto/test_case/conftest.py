@@ -24,11 +24,13 @@ def pytest_collection_modifyitems(session: "Session", config: "Config", items: L
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
+    pass
     '''
     获取每个用例状态的钩子函数
     :param item:
     :param call:
     :return:
+    '''
     '''
     # 获取钩子方法的调用结果
     outcome = yield
@@ -48,3 +50,4 @@ def pytest_runtest_makereport(item, call):
             with allure.step('添加失败截图...'):
                 allure.attach(_driver.get_screenshot_as_png(), "失败截图", allure.attachment_type.PNG)
 
+    '''
