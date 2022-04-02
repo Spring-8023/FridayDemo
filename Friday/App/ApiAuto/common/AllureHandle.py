@@ -7,9 +7,9 @@ Time：  2022/3/28 7:06 PM
 """
 from subprocess import call
 from config import settings
-from common.LoggerHandler import logger
+from common.LoggerHandle import logger
 
-class AllureHandler(object):
+class AllureHandle():
 
     def execute_command(self):
         try:

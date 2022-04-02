@@ -12,10 +12,10 @@ import os
 import datetime
 from config import settings
 
-# shutil.make_archive('/Volumes/HDD/Code/Python/FridayDemo/Friday/App/InterfaceAutomation/Debug/', "zip", root_dir='/Users/mac-mini/Desktop/约面0330')
-zip_dir = '/Volumes/HDD/Code/Python/FridayDemo/Friday/App/InterfaceAutomation/Debug/'
+# shutil.make_archive('/Volumes/HDD/Code/Python/FridayDemo/Friday/App/ApiAuto/Debug/', "zip", root_dir='/Users/mac-mini/Desktop/约面0330')
+zip_dir = '/Volumes/HDD/Code/Python/FridayDemo/Friday/App/ApiAuto/Debug/'
 new_file_path = os.path.join(zip_dir, 'test1.zip')
-zip_file_path = '/Volumes/HDD/Code/Python/FridayDemo/Friday/App/InterfaceAutomation/Debug/'
+zip_file_path = '/Volumes/HDD/Code/Python/FridayDemo/Friday/App/ApiAuto/Debug/'
 
 create_zip_file = zipfile.ZipFile(new_file_path, mode='w', compression=zipfile.ZIP_DEFLATED)
 

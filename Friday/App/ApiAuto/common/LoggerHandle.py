@@ -8,7 +8,7 @@ Time：  2022/3/29 2:19 PM
 import logging
 from config import settings
 
-class LoggerHandler:
+class LoggerHandle:
 
     _logger_level = {
         'debug': logging.DEBUG,
@@ -48,7 +48,7 @@ class LoggerHandler:
         return self.logger
 
 def logger(log_name='接口测试'):
-    return LoggerHandler(
+    return LoggerHandle(
         log_name=log_name,
         logger_level=settings.LOG_LEVEL,
         file_name=settings.LOG_FILE_NAME,

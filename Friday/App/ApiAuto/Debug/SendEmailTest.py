@@ -64,7 +64,7 @@ class SendEmailTest():
         text_html["Content-Disposition"] = 'attachment; filename="texthtml.html"'
         message.attach(text_html)
 
-        # shutil.make_archive('/Volumes/HDD/Code/Python/FridayDemo/Friday/App/InterfaceAutomation/Debug/', "zip", root_dir='/Users/mac-mini/Downloads/1639134966888.jpg')
+        # shutil.make_archive('/Volumes/HDD/Code/Python/FridayDemo/Friday/App/ApiAuto/Debug/', "zip", root_dir='/Users/mac-mini/Downloads/1639134966888.jpg')
 
         # 构造附件
         sendfile = open(r'/Users/mac-mini/Downloads/allure-2.17.3.zip', 'rb').read()

@@ -14,9 +14,9 @@ from config import settings
 from email.mime.multipart import MIMEMultipart
 from email.header import Header
 from email.mime.text import MIMEText
-from common.LoggerHandler import logger
+from common.LoggerHandle import logger
 
-class SendEmailHandler(object):
+class SendEmailHandle():
 
     # 压缩report功能
     def _compress_zip_file(self):
@@ -103,4 +103,4 @@ class SendEmailHandler(object):
 
 
 if __name__ == "__main__":
-    SendEmailHandler().send_mail_msg()
+    SendEmailHandle().send_mail_msg()
